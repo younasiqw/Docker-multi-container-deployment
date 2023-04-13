@@ -13,12 +13,14 @@ create_containers() {
         docker run -d --name $container_name $image_name
         echo "已創建容器 $container_name 使用映像 $image_name"
     done
+    echo ""
 }
 
 remove_all_containers() {
     docker stop $(docker ps -aq)
     docker rm $(docker ps -aq)
     echo "已暫停並刪除全部的 Docker 容器"
+    echo ""
 }
 
 list_containers() {
@@ -35,6 +37,7 @@ stop_and_remove_container() {
     # 刪除容器
     docker rm $container_id
     echo "已經刪除容器 $container_id"
+    echo ""
 }
 
 custom_remove() {
@@ -49,6 +52,7 @@ custom_remove() {
     else
         echo "取消操作。"
     fi
+    echo ""
 }
 
 while true; do
